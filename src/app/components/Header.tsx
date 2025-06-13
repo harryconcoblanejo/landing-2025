@@ -17,6 +17,10 @@ export default function Header() {
       const sections = ['about', 'projects', 'contact'];
       const offset = 80; // header height + margin
       let current = '';
+      if (window.scrollY < offset) {
+        setActiveSection('top');
+        return;
+      }
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -36,11 +40,17 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <div className="flex items-center gap-2">
-              <a href="#top" className="font-bold text-lg hover:underline focus:underline transition-colors duration-150">
-                Rodrigo López
-              </a>
-            </div>
+            <a
+              href="#top"
+              onClick={e => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setActiveSection('top');
+              }}
+              className={`text-xl font-bold text-white transition-colors duration-150 hover:underline focus:underline${activeSection==='top' ? ' underline underline-offset-4' : ''}`}
+            >
+              Rodrigo López
+            </a>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a

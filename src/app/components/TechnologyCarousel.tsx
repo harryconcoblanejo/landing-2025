@@ -55,7 +55,7 @@ export default function TechnologyCarousel() {
               style={{ minWidth: '80px', maxWidth: '120px' }}
             >
               <tech.icon
-                className="w-7 h-7 sm:w-10 sm:h-10 md:w-14 md:h-14"
+                className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                 style={{
                   color: isDark ? tech.color : tech.color,
                   filter: isDark ? 'brightness(1.2)' : 'none',
