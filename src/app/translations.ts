@@ -1,6 +1,9 @@
 export const translations = {
   en: {
-    hero: { title: "Centered Image" },
+    hero: {
+      title: "Smart and fast digital solutions to boost your business.",
+      subtitle: "We design and develop modern, optimized, and custom websites. Attract more clients, gain online presence, and grow your brand."
+    },
     technologies: "Technologies",
     projects: "Projects",
     about: "About Me",
@@ -28,7 +31,10 @@ export const translations = {
     prisma: "Prisma"
   },
   es: {
-    hero: { title: "Imagen Centrada" },
+    hero: {
+      title: "Soluciones digitales inteligentes y rápidas para potenciar tu negocio.",
+      subtitle: "Diseñamos y desarrollamos sitios web modernos, optimizados y a medida. Atraé más clientes, ganá presencia online y hacé crecer tu marca."
+    },
     technologies: "Tecnologías",
     projects: "Proyectos",
     about: "Sobre mí",
@@ -55,4 +61,4 @@ export const translations = {
     tailwind: "Tailwind",
     prisma: "Prisma"
   }
-} as const; 
+} as const;

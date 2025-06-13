@@ -51,18 +51,18 @@ export default function TechnologyCarousel() {
           {[...technologies, ...technologies].map((tech, index) => (
             <div
               key={index}
-              className="embla__slide flex-shrink-0 mx-4 sm:mx-6 md:mx-8 flex flex-col items-center justify-center"
-              style={{ minWidth: '100px', maxWidth: '150px' }}
+              className="embla__slide flex-shrink-0 mx-2 sm:mx-4 md:mx-6 flex flex-col items-center justify-center"
+              style={{ minWidth: '80px', maxWidth: '120px' }}
             >
               <tech.icon
-                className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"
+                className="w-7 h-7 sm:w-10 sm:h-10 md:w-14 md:h-14"
                 style={{
                   color: isDark ? tech.color : tech.color,
                   filter: isDark ? 'brightness(1.2)' : 'none',
                 }}
               />
               <span
-                className="text-sm sm:text-base mt-3 font-medium"
+                className="text-xs sm:text-sm mt-2 font-medium"
                 style={{
                   color: isDark ? '#fff' : '#1a202c',
                 }}
@@ -75,4 +75,4 @@ export default function TechnologyCarousel() {
       </div>
     </div>
   );
-} 
+}

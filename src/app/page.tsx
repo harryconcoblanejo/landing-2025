@@ -15,7 +15,8 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   const { language, setLanguage } = useLanguage();
   const { isDark, toggleTheme } = useTheme();
-  const [state, handleSubmit] = useForm("xrgwqgqw");
+  // Cambia el endpoint a xvgrajrw para Formspree
+  const [state, handleSubmit] = useForm("xvgrajrw");
 
   useEffect(() => {
     setMounted(true);
@@ -28,10 +29,10 @@ export default function Home() {
   const t = translations[language];
 
   return (
-    <div className={`flex flex-col min-h-screen ${isDark ? 'dark' : ''}`}>
+    <div className={`flex flex-col min-h-screen w-full ${isDark ? 'dark' : ''}`}> 
       <Header />
       {/* Hero Section - Mobile First */}
-      <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] bg-gray-200 dark:bg-gray-800">
+      <div className="relative w-full h-[55vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-gray-200 dark:bg-gray-800">
         <div className="absolute inset-0">
           <Image
             src="/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg"
@@ -47,14 +48,14 @@ export default function Home() {
         </div>
         
         {/* Contenedor del texto */}
-        <div className="relative h-full flex items-center">
-          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
-            <div className="w-full md:w-3/4 lg:w-1/2">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 md:mb-4">
+        <div className="absolute inset-0 flex items-center justify-start z-10">
+          <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl px-4 sm:px-6 md:px-8 lg:px-12 min-w-0">
+            <div className="rounded-2xl bg-black/20 dark:bg-black/30 backdrop-blur-md p-4 sm:p-6 flex flex-col items-start shadow-lg">
+              <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 md:mb-4">
                 {t.hero.title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200">
+                {t.hero.subtitle}
               </p>
             </div>
           </div>
@@ -66,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* About Me Section */}
-      <section id="about" className="w-full py-12 bg-transparent flex justify-center items-center">
+      <section id="about" className="w-full py-12 bg-transparent flex justify-center items-center px-4 sm:px-6 md:px-8 lg:px-12 max-w-full min-w-0">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h2
             className="text-3xl font-bold mb-4 text-center"
@@ -84,44 +85,44 @@ export default function Home() {
       </section>
 
       {/* Projects Section - Mobile First */}
-      <section id="projects" className="w-full px-4 py-12 sm:px-6 md:px-8 lg:px-12">
+      <section id="projects" className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 max-w-full min-w-0">
         <h2
           className="text-3xl font-bold mb-6 text-center"
           style={{ color: isDark ? '#fff' : '#1a202c' }}
         >
           {t.projects}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {[1, 2, 3, 4, 5].map((project) => (
-            <div
-              key={project}
-              className="rounded-lg shadow-md p-4 sm:p-6 transform transition-transform hover:scale-[1.02]"
-              style={{
-                background: isDark ? '#23272f' : '#fff',
-                color: isDark ? '#e5e7eb' : '#1a202c',
-              }}
-            >
-              <h3
-                className="text-lg sm:text-xl font-semibold mb-2"
-                style={{ color: isDark ? '#fff' : '#1a202c' }}
+        <div className={`w-full overflow-x-auto pb-4 rounded-2xl ${isDark ? 'bg-gray-950' : 'bg-[#f7f7f3]'} p-4`}> 
+          <div className="flex flex-row gap-6 min-w-[700px] sm:min-w-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+            {[1, 2, 3, 4, 5].map((project) => (
+              <div
+                key={project}
+                className={`flex-shrink-0 w-[320px] sm:w-full rounded-2xl shadow-xl p-0 overflow-hidden border hover:scale-[1.02] transition-transform ${isDark ? 'bg-[#23272f] border-gray-700 text-gray-100' : 'bg-white border-gray-200 text-gray-900'}`}
               >
-                {t.projects} {project}
-              </h3>
-              <p
-                className="text-sm sm:text-base"
-                style={{ color: isDark ? '#e5e7eb' : '#4b5563' }}
-              >
-                {language === 'en'
-                  ? `This is a description for project ${project}.`
-                  : `Esta es una descripción para el proyecto ${project}.`}
-              </p>
-            </div>
-          ))}
+                {/* Simulación de vista previa del proyecto */}
+                <div className={`h-40 sm:h-48 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-200'}`}>
+                  <span className={`text-5xl ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>🖼️</span>
+                </div>
+                <div className="p-2 sm:p-4">
+                  <h3
+                    className="text-xl sm:text-2xl font-semibold mb-2"
+                  >
+                    {t.projects} {project}
+                  </h3>
+                  <p
+                    className="text-base sm:text-lg"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-6 md:py-12 flex justify-center items-center bg-transparent">
+      <section id="contact" className="w-full py-6 md:py-12 flex justify-center items-center bg-transparent px-4 sm:px-6 md:px-8 lg:px-12 max-w-full min-w-0">
         <div className="max-w-2xl w-full mx-auto px-4 text-center">
           <h2
             className="text-4xl font-extrabold mb-6 text-center"
@@ -173,7 +174,7 @@ export default function Home() {
             </form>
           )}
           {/* Datos de contacto personales */}
-          <div className="mt-8 flex flex-row justify-center items-center gap-8 text-base">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 text-base">
             {/* WhatsApp */}
             <a
               href="https://wa.me/541141636472"

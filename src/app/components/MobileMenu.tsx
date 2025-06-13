@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { translations } from '../translations';
@@ -12,6 +12,26 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
   const { language } = useLanguage();
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'projects', 'contact'];
+      const offset = 80;
+      let current = '';
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top - offset;
+          if (top <= 0) current = id;
+        }
+      }
+      setActiveSection(current || 'about');
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,31 +66,55 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
 
       {/* Menú tipo drawer desde la derecha, debajo del header, altura automática y fondo semitransparente */}
       <div
-        className={`fixed top-16 right-0 w-1/2 max-w-[220px] bg-black/80 shadow-lg z-50 transform transition-transform duration-300 ease-in-out rounded-b-xl overflow-hidden h-auto flex flex-col justify-center ${
+        className={`fixed top-16 right-0 w-4/5 max-w-xs min-w-[180px] bg-black/90 shadow-lg z-50 transform transition-transform duration-300 ease-in-out rounded-b-xl overflow-hidden h-auto flex flex-col justify-center ${
           isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
         }`}
       >
-        <nav className="flex flex-col items-center px-4 w-full pb-4">
+        <nav className="flex flex-col items-center px-2 w-full pb-4">
           <a
             href="#about"
-            onClick={toggleMenu}
-            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '')}
+            onClick={e => {
+              e.preventDefault();
+              const el = document.getElementById('about');
+              if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+              toggleMenu();
+            }}
+            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + (activeSection==='about' ? ' underline' : '')}
             style={{ transitionDelay: isMenuOpen ? '100ms' : '0ms' }}
           >
             {translations[language].about}
           </a>
           <a
             href="#projects"
-            onClick={toggleMenu}
-            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '')}
+            onClick={e => {
+              e.preventDefault();
+              const el = document.getElementById('projects');
+              if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+              toggleMenu();
+            }}
+            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + (activeSection==='projects' ? ' underline' : '')}
             style={{ transitionDelay: isMenuOpen ? '200ms' : '0ms' }}
           >
             {translations[language].projects}
           </a>
           <a
             href="#contact"
-            onClick={toggleMenu}
-            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '')}
+            onClick={e => {
+              e.preventDefault();
+              const el = document.getElementById('contact');
+              if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+              toggleMenu();
+            }}
+            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + (activeSection==='contact' ? ' underline' : '')}
             style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
           >
             {translations[language].contact}
@@ -87,4 +131,4 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
       )}
     </div>
   );
-} 
+}
