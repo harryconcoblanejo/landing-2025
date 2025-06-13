@@ -13,19 +13,19 @@ export const translations = {
     contactMessage: "Your Message",
     contactConsent: "I agree that my personal information will be processed and stored.",
     contactSend: "Send",
-    contactLegal: "This site is protected by reCAPTCHA and the Google Privacy Policy Terms of Service.",
+    navHome: "Home",
+    navAbout: "About",
+    navProjects: "Projects",
+    navContact: "Contact",
+    // Technology names
     nextjs: "Next.js",
     react: "React",
     nodejs: "Node.js",
+    sql: "SQL",
     mongodb: "MongoDB",
     graphql: "GraphQL",
-    css: "CSS",
     tailwind: "Tailwind",
-    prisma: "Prisma",
-    navAbout: "About Me",
-    navProjects: "Projects",
-    navContact: "Contact",
-    navHome: "Home"
+    prisma: "Prisma"
   },
   es: {
     hero: { title: "Imagen Centrada" },
@@ -41,18 +41,18 @@ export const translations = {
     contactMessage: "Tu mensaje",
     contactConsent: "Acepto que mi información personal será procesada y almacenada.",
     contactSend: "Enviar",
-    contactLegal: "Este sitio está protegido por reCAPTCHA y la Política de Privacidad y Términos de Servicio de Google.",
-    nextjs: "Next.js",
-    react: "React",
-    nodejs: "Node.js",
-    mongodb: "MongoDB",
-    graphql: "GraphQL",
-    css: "CSS",
-    tailwind: "Tailwind",
-    prisma: "Prisma",
+    navHome: "Inicio",
     navAbout: "Sobre mí",
     navProjects: "Proyectos",
     navContact: "Contacto",
-    navHome: "Inicio"
+    // Technology names
+    nextjs: "Next.js",
+    react: "React",
+    nodejs: "Node.js",
+    sql: "SQL",
+    mongodb: "MongoDB",
+    graphql: "GraphQL",
+    tailwind: "Tailwind",
+    prisma: "Prisma"
   }
 } as const; 
