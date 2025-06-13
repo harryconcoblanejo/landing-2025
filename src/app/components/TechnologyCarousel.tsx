@@ -26,28 +26,38 @@ export default function TechnologyCarousel() {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    dragFree: true,
+    dragFree: false,
     containScroll: false,
     align: 'start',
     slidesToScroll: 1,
     skipSnaps: false,
+    watchDrag: false,
   });
-
-  const autoplay = useCallback(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollNext();
-  }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
+    let stopped = false;
+    const autoplay = () => {
+      if (!emblaApi || stopped) return;
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi.scrollTo(0);
+      }
+    };
     const interval = setInterval(autoplay, 1000);
-    return () => clearInterval(interval);
-  }, [emblaApi, autoplay]);
+    return () => {
+      stopped = true;
+      clearInterval(interval);
+    };
+  }, [emblaApi]);
 
   return (
     <div className="relative w-full overflow-hidden py-4">
       <div className="embla" ref={emblaRef}>
-        <div className="embla__container flex">
+        <div className="embla__container flex"
+          style={{ minWidth: 0 }}
+        >
           {[...technologies, ...technologies].map((tech, index) => (
             <div
               key={index}
@@ -67,7 +77,10 @@ export default function TechnologyCarousel() {
                   color: isDark ? '#fff' : '#1a202c',
                 }}
               >
-                {t[tech.name as keyof typeof t]}
+                {(() => {
+                  const label = t[tech.name as keyof typeof t];
+                  return typeof label === 'string' ? label : tech.name.toUpperCase();
+                })()}
               </span>
             </div>
           ))}
