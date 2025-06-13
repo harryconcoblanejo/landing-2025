@@ -7,7 +7,11 @@ export const translations = {
     technologies: "Technologies",
     projects: "Projects",
     about: "About Me",
-    aboutText: "I am a passionate developer with experience in modern web technologies, always eager to learn and create impactful digital experiences. I love working with JavaScript, React, and Node.js, and I enjoy collaborating on innovative projects.",
+    aboutText: `I am a web developer specialized in creating fast, functional, and tailor-made digital solutions. I'm passionate about transforming ideas into online experiences that truly deliver value to people and businesses.
+
+I work with modern technologies to build websites that are fast, secure, and well-optimized. Whether it's a landing page, an e-commerce site, or a custom platform, my goal is always the same: help you stand out in the digital world with a solid, clear, and effective presence.
+
+I focus on direct communication, functional design, and agile delivery. If you're looking for someone who understands your vision and turns it into real results, you're in the right place.`,
     contact: "Contact",
     contactText: "Let's talk!",
     contactName: "Your Name",
@@ -20,7 +24,6 @@ export const translations = {
     navAbout: "About",
     navProjects: "Projects",
     navContact: "Contact",
-    // Technology names
     nextjs: "Next.js",
     react: "React",
     nodejs: "Node.js",
@@ -38,7 +41,11 @@ export const translations = {
     technologies: "Tecnologías",
     projects: "Proyectos",
     about: "Sobre mí",
-    aboutText: "Soy un desarrollador apasionado con experiencia en tecnologías web modernas, siempre con ganas de aprender y crear experiencias digitales impactantes. Me encanta trabajar con JavaScript, React y Node.js, y disfruto colaborar en proyectos innovadores.",
+    aboutText: `Soy desarrollador web especializado en crear soluciones digitales rápidas, funcionales y a medida. Me apasiona transformar ideas en experiencias online que realmente generen valor para las personas y los negocios.
+
+Trabajo con tecnologías modernas para construir sitios web rápidos, seguros y bien posicionados. Ya sea una landing page, un e-commerce o una plataforma a medida, mi objetivo siempre es el mismo: ayudarte a destacar en el mundo digital con una presencia sólida, clara y efectiva.
+
+Me enfoco en la comunicación directa, el diseño funcional y la entrega ágil. Si estás buscando alguien que entienda tu visión y la convierta en resultados concretos, estás en el lugar correcto.`,
     contact: "Contacto",
     contactText: "¡Hablemos!",
     contactName: "Tu nombre",
@@ -51,7 +58,6 @@ export const translations = {
     navAbout: "Sobre mí",
     navProjects: "Proyectos",
     navContact: "Contacto",
-    // Technology names
     nextjs: "Next.js",
     react: "React",
     nodejs: "Node.js",

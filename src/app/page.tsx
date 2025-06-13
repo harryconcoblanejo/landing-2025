@@ -35,7 +35,8 @@ export default function Home() {
       <div className="relative w-full h-[55vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-gray-200 dark:bg-gray-800">
         <div className="absolute inset-0">
           <Image
-            src="/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg"
+             src="/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg"
+            // src="/images/farzad-p-xSl33Wxyc-unsplash.jpg"
             alt="Hero Image"
             fill
             className="object-cover brightness-125 dark:brightness-100"
