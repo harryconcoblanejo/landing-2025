@@ -1,0 +1,35 @@
+"use client";
+
+import React, { useState } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
+import ThemeToggle from './ThemeToggle';
+import MobileMenu from './MobileMenu';
+import { translations } from '../translations';
+
+export default function Header() {
+  const { language } = useLanguage();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <header className="fixed top-0 left-0 w-full z-30 bg-black/2 backdrop-blur-sm text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0">
+            <h1 className="text-xl font-bold text-white">Portfolio</h1>
+          </div>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#about" className="text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200">{translations[language].about}</a>
+            <a href="#projects" className="text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200">{translations[language].projects}</a>
+            <a href="#contact" className="text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200">{translations[language].contact}</a>
+          </div>
+          <div className="flex items-center gap-4 md:static md:mr-12 md:gap-4 fixed top-4 right-4 z-[110] md:top-auto md:right-auto">
+            <LanguageToggle />
+            <ThemeToggle />
+            <MobileMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+} 
