@@ -26,6 +26,27 @@
       animation-duration: 4s;
     }
   }
+
+  @media (max-width: 900px) and (orientation: landscape) {
+    .mobile-horizontal\:pb-12 {
+      padding-bottom: 3rem !important;
+    }
+    .mobile-horizontal\:pt-8 {
+      padding-top: 2rem !important;
+    }
+    .mobile-horizontal\:h-\[65vh\] {
+      height: 65vh !important;
+    }
+    .mobile-horizontal\:h-\[80vh\] {
+      height: 80vh !important;
+    }
+    .mobile-horizontal\:justify-center {
+      justify-content: center !important;
+    }
+    .mobile-horizontal\:mt-16 {
+      margin-top: 4rem !important;
+    }
+  }
 }
 
 @keyframes carousel {

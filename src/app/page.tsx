@@ -10,6 +10,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { FaWhatsapp, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
+import ProjectCarousel from './components/ProjectCarousel';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -32,7 +33,7 @@ export default function Home() {
     <div className={`flex flex-col min-h-screen w-full ${isDark ? 'dark' : ''}`}> 
       <Header />
       {/* Hero Section - Mobile First */}
-      <div className="relative w-full h-[55vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-gray-200 dark:bg-gray-800">
+      <div className="relative w-full h-[55vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-gray-200 dark:bg-gray-800 mobile-horizontal:h-[80vh]">
         <div className="absolute inset-0">
           <Image
              src="/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg"
@@ -49,7 +50,7 @@ export default function Home() {
         </div>
         
         {/* Contenedor del texto */}
-        <div className="absolute inset-0 flex items-center justify-start z-10">
+        <div className="absolute inset-0 flex items-center justify-start z-10 mobile-horizontal:justify-center">
           <div className="max-w-xl lg:max-w-2xl xl:max-w-3xl px-4 sm:px-6 md:px-8 lg:px-12 min-w-0">
             <div className="rounded-2xl bg-black/20 dark:bg-black/30 backdrop-blur-md p-4 sm:p-6 flex flex-col items-start shadow-lg">
               <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 md:mb-4">
@@ -62,7 +63,7 @@ export default function Home() {
           </div>
         </div>
         {/* Overlay TechnologyCarousel at the bottom of the hero */}
-        <div className="absolute bottom-0 left-0 w-full pb-2 px-2 z-20">
+        <div className="absolute bottom-0 left-0 w-full pb-2 px-2 z-20 mobile-horizontal:mt-16">
           <TechnologyCarousel />
         </div>
       </div>
@@ -93,33 +94,7 @@ export default function Home() {
         >
           {t.projects}
         </h2>
-        <div className={`w-full overflow-x-auto pb-4 rounded-2xl ${isDark ? 'bg-gray-950' : 'bg-[#f7f7f3]'} p-4`}> 
-          <div className="flex flex-row gap-6 min-w-[700px] sm:min-w-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
-            {[1, 2, 3, 4, 5].map((project) => (
-              <div
-                key={project}
-                className={`flex-shrink-0 w-[320px] sm:w-full rounded-2xl shadow-xl p-0 overflow-hidden border hover:scale-[1.02] transition-transform ${isDark ? 'bg-[#23272f] border-gray-700 text-gray-100' : 'bg-white border-gray-200 text-gray-900'}`}
-              >
-                {/* Simulación de vista previa del proyecto */}
-                <div className={`h-40 sm:h-48 flex items-center justify-center ${isDark ? 'bg-gray-800' : 'bg-gray-200'}`}>
-                  <span className={`text-5xl ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>🖼️</span>
-                </div>
-                <div className="p-2 sm:p-4">
-                  <h3
-                    className="text-xl sm:text-2xl font-semibold mb-2"
-                  >
-                    {t.projects} {project}
-                  </h3>
-                  <p
-                    className="text-base sm:text-lg"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ProjectCarousel />
       </section>
 
       {/* Contact Section */}

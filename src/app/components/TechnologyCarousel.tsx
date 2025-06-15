@@ -67,15 +67,12 @@ export default function TechnologyCarousel() {
               <tech.icon
                 className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                 style={{
-                  color: isDark ? tech.color : tech.color,
+                  color: tech.color,
                   filter: isDark ? 'brightness(1.2)' : 'none',
                 }}
               />
               <span
-                className="text-xs sm:text-sm mt-2 font-medium"
-                style={{
-                  color: isDark ? '#fff' : '#1a202c',
-                }}
+                className="text-xs sm:text-sm mt-2 font-medium text-white"
               >
                 {(() => {
                   const label = t[tech.name as keyof typeof t];
