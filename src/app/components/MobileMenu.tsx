@@ -14,7 +14,7 @@ interface MobileMenuProps {
 export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProps) {
   const { language } = useLanguage();
   const [activeSection, setActiveSection] = useState('');
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['about', 'projects', 'contact'];
