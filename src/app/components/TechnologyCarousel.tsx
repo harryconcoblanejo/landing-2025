@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { SiNextdotjs, SiMongodb, SiGraphql, SiTailwindcss, SiPrisma } from 'react-icons/si';
+import { SiNextdotjs, SiMongodb, SiGraphql, SiTailwindcss, SiPrisma, SiTypescript, SiJavascript, SiCss3, SiHtml5 } from 'react-icons/si';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 import { useTheme } from '../contexts/ThemeContext';
@@ -17,6 +17,10 @@ const technologies = [
   { icon: SiGraphql, name: 'graphql', color: '#E10098' },
   { icon: SiTailwindcss, name: 'tailwind', color: '#06B6D4' },
   { icon: SiPrisma, name: 'prisma', color: '#2D3748' },
+  { icon: SiTypescript, name: 'typescript', color: '#3178C6' },
+  { icon: SiJavascript, name: 'javascript', color: '#F7DF1E' },
+  { icon: SiCss3, name: 'css', color: '#1572B6' },
+  { icon: SiHtml5, name: 'html', color: '#E44D26' },
 ];
 
 export default function TechnologyCarousel() {
@@ -76,7 +80,12 @@ export default function TechnologyCarousel() {
               >
                 {(() => {
                   const label = t[tech.name as keyof typeof t];
-                  return typeof label === 'string' ? label : tech.name.toUpperCase();
+                  if (typeof label === 'string') return label;
+                  if (tech.name === 'typescript') return 'TypeScript';
+                  if (tech.name === 'javascript') return 'JavaScript';
+                  if (tech.name === 'css') return 'CSS';
+                  if (tech.name === 'html') return 'HTML';
+                  return tech.name.charAt(0).toUpperCase() + tech.name.slice(1);
                 })()}
               </span>
             </div>
