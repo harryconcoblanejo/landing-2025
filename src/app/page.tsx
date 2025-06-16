@@ -47,6 +47,8 @@ export default function Home() {
           {!isDark && <div className="absolute inset-0 pointer-events-none bg-white/10" />}
           {/* Degradado para mejorar la legibilidad del texto */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-transparent" />
+          {/* Gradiente de transición visual hacia el body */}
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-[#181e29]/70 to-[#181e29] dark:via-[#101624]/80 dark:to-[#101624] pointer-events-none z-20" />
         </div>
         
         {/* Contenedor del texto */}

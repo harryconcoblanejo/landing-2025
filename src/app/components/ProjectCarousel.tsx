@@ -40,7 +40,7 @@ const projects = [
 
 export default function ProjectCarousel() {
 	return (
-		<section className="w-full max-w-md mx-auto p-4 rounded-2xl bg-gradient-to-b from-blue-50/80 via-white/90 to-white dark:from-[#1e293b]/80 dark:via-[#23272f]/90 dark:to-[#23272f] shadow-lg border border-blue-100 dark:border-gray-800">
+		<section className="w-full max-w-md mx-auto py-10 px-2 rounded-2xl bg-gradient-to-b from-slate-950 via-blue-200/90 to-blue-50/90 dark:from-[#1e293b] dark:via-[#23272f] dark:to-[#181e29] shadow-lg  dark:border-gray-800">
 		
 			<Swiper
 				spaceBetween={24}
@@ -57,13 +57,15 @@ export default function ProjectCarousel() {
 							className="block rounded-xl shadow-lg border bg-white dark:bg-[#23272f] border-gray-200 dark:border-gray-700 overflow-hidden hover:scale-[1.02] transition-transform"
 							style={{ textDecoration: 'none' }}
 						>
-							<div className="h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-800">
+							<div className="h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-800 relative">
 								<img
 									src={project.image}
 									alt={project.title}
-									className="object-cover w-full h-full"
+									className="object-cover w-full h-full rounded-t-xl"
 									style={{ objectFit: 'cover' }}
 								/>
+								{/* Transición visual entre imagen y body */}
+								<div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-white dark:to-[#23272f] pointer-events-none" />
 							</div>
 							<div className="p-4">
 								<h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
