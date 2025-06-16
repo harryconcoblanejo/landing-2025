@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useLanguage } from './context/LanguageContext';
 import TechnologyCarousel from './components/TechnologyCarousel';
@@ -17,9 +17,23 @@ export default function Home() {
   const { isDark } = useTheme();
   // Cambia el endpoint a xvgrajrw para Formspree
   const [state, handleSubmit] = useForm("xvgrajrw");
+  const aboutRef = useRef<HTMLParagraphElement>(null);
+  const [aboutActive, setAboutActive] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!aboutRef.current) return;
+      const rect = aboutRef.current.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > window.innerHeight * 0.2;
+      setAboutActive(inView);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (!mounted) {
@@ -79,7 +93,8 @@ export default function Home() {
             {t.about}
           </h2>
           <p
-            className="text-lg"
+            ref={aboutRef}
+            className={`text-lg about-animate${aboutActive ? ' about-animate--active' : ''}`}
             style={{ color: isDark ? '#e5e7eb' : '#374151' }}
           >
             {t.aboutText}

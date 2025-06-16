@@ -61,6 +61,15 @@
   .animate-fade-slide {
     animation: fade-slide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  .about-animate {
+    transition: font-size 0.25s, color 0.25s, transform 0.25s;
+  }
+  .about-animate:hover,
+  .about-animate--active {
+    font-size: 1.13em;
+    color: #f3f4f6 !important; /* Un tono más claro */
+    transform: scale(1.03);
+  }
 }
 
 @keyframes carousel {
