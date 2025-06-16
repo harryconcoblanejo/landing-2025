@@ -8,7 +8,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rodrigo Lopez - Portfolio",
+  title: "RL - Full Stack Developer",
   description: "Full Stack Developer Portfolio",
 };
 
@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider>
           <LanguageProvider>

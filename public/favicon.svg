@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23272f"/>
+      <stop offset="1" stop-color="#181E29"/>
+    </linearGradient>
+    <linearGradient id="rl-gradient" x1="16" y1="44" x2="48" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#61DAFB"/>
+      <stop offset="1" stop-color="#00C6FB"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg-gradient)"/>
+  <text x="13" y="46" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="bold" fill="url(#rl-gradient)" filter="url(#shadow)">RL</text>
+  <circle cx="54" cy="12" r="4" fill="#61DAFB" fill-opacity="0.7"/>
+  <circle cx="10" cy="54" r="2" fill="#00C6FB" fill-opacity="0.5"/>
+</svg>
