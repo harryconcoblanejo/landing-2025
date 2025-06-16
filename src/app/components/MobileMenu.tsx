@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { FiDownload } from 'react-icons/fi';
 import { translations } from '../translations';
 
 interface MobileMenuProps {
@@ -118,6 +119,19 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
             style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
           >
             {translations[language].contact}
+          </a>
+          {/* Botón de descarga de CV en el menú mobile */}
+          <a
+            href="/images/Rodrigo López 2025 cv.pdf"
+            download
+            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '')}
+            style={{ transitionDelay: isMenuOpen ? '400ms' : '0ms' }}
+            title="Descargar CV"
+          >
+            <span className="inline-flex items-center justify-center gap-2">
+              <FiDownload className="w-5 h-5" />
+              <span>CV</span>
+            </span>
           </a>
         </nav>
       </div>

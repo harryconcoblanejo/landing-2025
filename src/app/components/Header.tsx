@@ -6,6 +6,7 @@ import LanguageToggle from './LanguageToggle';
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
 import { translations } from '../translations';
+import { FiDownload } from 'react-icons/fi';
 
 export default function Header() {
   const { language } = useLanguage();
@@ -97,6 +98,16 @@ export default function Header() {
             </a>
           </div>
           <div className="flex items-center gap-4 md:static md:mr-12 md:gap-4 fixed top-4 right-4 z-[110] md:top-auto md:right-auto">
+            {/* Botón de descarga de CV, igual que los links */}
+            <a
+              href="/images/Rodrigo López 2025 cv.pdf"
+              download
+              className="text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200 flex items-center gap-1 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              title="Descargar CV"
+            >
+              <FiDownload className="w-5 h-5" />
+              <span>CV</span>
+            </a>
             <LanguageToggle />
             <ThemeToggle />
             {/* MobileMenu siempre visible en mobile, oculto en md+ */}
