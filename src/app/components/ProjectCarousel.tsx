@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 const projects = [
 	{
@@ -58,15 +59,17 @@ export default function ProjectCarousel() {
 							style={{ textDecoration: 'none' }}
 						>
 							<div className="h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-800 relative">
-								<img
-									src={project.image}
-									alt={project.title}
-									className="object-cover w-full h-full rounded-t-xl"
-									style={{ objectFit: 'cover' }}
-								/>
-								{/* Transición visual entre imagen y body */}
-								<div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-white dark:to-[#23272f] pointer-events-none" />
-							</div>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    width={400}
+                                    height={200}
+                                    className="object-cover w-full h-full rounded-t-xl"
+                                    style={{ objectFit: 'cover' }}
+                                />
+                                {/* Transición visual entre imagen y body */}
+                                <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-white dark:to-[#23272f] pointer-events-none" />
+                            </div>
 							<div className="p-4">
 								<h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
 								<p className="text-base text-gray-700 dark:text-gray-200">{project.description}</p>

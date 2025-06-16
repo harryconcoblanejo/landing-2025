@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Image from 'next/image';
 
 const projects = [
     {
@@ -58,9 +59,11 @@ export default function ProjectCarousel2() {
                             style={{ textDecoration: 'none' }}
                         >
                             <div className="h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-800">
-                                <img
+                                <Image
                                     src={project.image}
                                     alt={project.title}
+                                    width={400}
+                                    height={200}
                                     className="object-cover w-full h-full"
                                     style={{ objectFit: 'cover' }}
                                 />

@@ -1,8 +1,8 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { SiNextdotjs, SiReact, SiNodedotjs, SiMongodb, SiGraphql, SiCss3, SiTailwindcss, SiPrisma, SiJavascript, SiTypescript } from 'react-icons/si';
+import { SiNextdotjs, SiMongodb, SiGraphql, SiTailwindcss, SiPrisma } from 'react-icons/si';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 import { useTheme } from '../contexts/ThemeContext';
