@@ -19,6 +19,10 @@ export default function Home() {
   const [state, handleSubmit] = useForm("xvgrajrw");
   const aboutRef = useRef<HTMLParagraphElement>(null);
   const [aboutActive, setAboutActive] = useState(false);
+  const projectsRef = useRef<HTMLHeadingElement>(null);
+  const [projectsActive, setProjectsActive] = useState(false);
+  const projectsSectionRef = useRef<HTMLElement>(null);
+  const [projectsSectionActive, setProjectsSectionActive] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -34,6 +38,30 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScrollProjects = () => {
+      if (!projectsRef.current) return;
+      const rect = projectsRef.current.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > window.innerHeight * 0.2;
+      setProjectsActive(inView);
+    };
+    window.addEventListener('scroll', handleScrollProjects);
+    handleScrollProjects();
+    return () => window.removeEventListener('scroll', handleScrollProjects);
+  }, []);
+
+  useEffect(() => {
+    const handleScrollProjectsSection = () => {
+      if (!projectsSectionRef.current) return;
+      const rect = projectsSectionRef.current.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > window.innerHeight * 0.2;
+      setProjectsSectionActive(inView);
+    };
+    window.addEventListener('scroll', handleScrollProjectsSection);
+    handleScrollProjectsSection();
+    return () => window.removeEventListener('scroll', handleScrollProjectsSection);
   }, []);
 
   if (!mounted) {
@@ -103,8 +131,13 @@ export default function Home() {
       </section>
 
       {/* Projects Section - Mobile First */}
-      <section id="projects" className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 max-w-full min-w-0">
+      <section
+        id="projects"
+        ref={projectsSectionRef}
+        className={`w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 max-w-full min-w-0 about-animate${projectsSectionActive ? ' about-animate--active' : ''}`}
+      >
         <h2
+          ref={projectsRef}
           className="text-4xl font-extrabold mb-6 text-center font-sans"
           style={{ color: isDark ? '#fff' : '#1a202c' }}
         >
