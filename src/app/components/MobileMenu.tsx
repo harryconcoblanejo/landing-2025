@@ -124,9 +124,24 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
           <a
             href="/images/Rodrigo López 2025 cv.pdf"
             download
-            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '')}
+            className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + ' focus:outline-none focus:ring-0 active:outline-none active:ring-0'}
             style={{ transitionDelay: isMenuOpen ? '400ms' : '0ms' }}
             title="Descargar CV"
+            tabIndex={0}
+            onClick={e => {
+              // Forzar descarga en mobile navegadores que abren PDF
+              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+              if (isMobile) {
+                e.preventDefault();
+                const link = document.createElement('a');
+                link.href = '/images/Rodrigo López 2025 cv.pdf';
+                link.download = 'Rodrigo López 2025 cv.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }
+              toggleMenu();
+            }}
           >
             <span className="inline-flex items-center justify-center gap-2">
               <FiDownload className="w-5 h-5" />

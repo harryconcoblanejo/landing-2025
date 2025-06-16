@@ -102,8 +102,10 @@ export default function Header() {
             <a
               href="/images/Rodrigo López 2025 cv.pdf"
               download
-              className="text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200 flex items-center gap-1 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200 flex items-center gap-1 px-2 py-1 rounded focus:outline-none focus:ring-0 active:outline-none active:ring-0"
               title="Descargar CV"
+              tabIndex={0}
+              onMouseDown={e => e.currentTarget.blur()}
             >
               <FiDownload className="w-5 h-5" />
               <span>CV</span>
