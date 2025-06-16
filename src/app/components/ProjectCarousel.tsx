@@ -1,9 +1,9 @@
 'use client';
 
-import useEmblaCarousel from 'embla-carousel-react';
-import Image from 'next/image';
-import { useCallback, useEffect, useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const projects = [
 	{
@@ -39,68 +39,41 @@ const projects = [
 ];
 
 export default function ProjectCarousel() {
-	const [emblaRef, emblaApi] = useEmblaCarousel({
-		loop: true,
-		dragFree: false,
-		containScroll: false,
-		align: 'start',
-		slidesToScroll: 1,
-		skipSnaps: false,
-		watchDrag: false
-	});
-
-	useEffect(() => {
-		if (!emblaApi) return;
-		let stopped = false;
-		const autoplay = () => {
-			if (!emblaApi || stopped) return;
-			emblaApi.scrollNext();
-		};
-		const interval = setInterval(autoplay, 2000);
-		return () => {
-			stopped = true;
-			clearInterval(interval);
-		};
-	}, [emblaApi]);
-
-	const scrollPrev = useCallback(() => {
-		if (emblaApi) emblaApi.scrollPrev();
-	}, [emblaApi]);
-
-	const scrollNext = useCallback(() => {
-		if (emblaApi) emblaApi.scrollNext();
-	}, [emblaApi]);
-
 	return (
-		<div className="relative w-full overflow-hidden py-4">
-			<div className="embla" ref={emblaRef}>
-				<div className="embla__container flex transition-all duration-300 ease-in-out" style={{ minWidth: 0 }}>
-					{[...projects, ...projects].map((project, index) => (
+		<section className="w-full max-w-md mx-auto p-4 rounded-2xl bg-gradient-to-b from-blue-50/80 via-white/90 to-white dark:from-[#1e293b]/80 dark:via-[#23272f]/90 dark:to-[#23272f] shadow-lg border border-blue-100 dark:border-gray-800">
+		
+			<Swiper
+				spaceBetween={24}
+				slidesPerView={1}
+				pagination={{ clickable: true, el: '.swiper-pagination-custom' }}
+				modules={[Pagination]}
+			>
+				{projects.map((project, idx) => (
+					<SwiperSlide key={idx}>
 						<a
-							key={index}
 							href={project.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							className={`embla__slide flex-shrink-0 w-[320px] sm:w-full rounded-2xl shadow-xl p-0 overflow-hidden border hover:scale-[1.02] transition-transform bg-white dark:bg-[#23272f] border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 mx-2 sm:mx-4 md:mx-6`}
-							style={{ textDecoration: 'none', maxWidth: '340px', minWidth: '320px' }}
+							className="block rounded-xl shadow-lg border bg-white dark:bg-[#23272f] border-gray-200 dark:border-gray-700 overflow-hidden hover:scale-[1.02] transition-transform"
+							style={{ textDecoration: 'none' }}
 						>
-							{/* Simulación de vista previa del proyecto */}
-							<div className={`h-40 sm:h-48 flex items-center justify-center bg-gray-200 dark:bg-gray-800`}>
+							<div className="h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-800">
 								<img
 									src={project.image}
 									alt={project.title}
-									className="object-cover w-full h-full rounded-t-2xl"
+									className="object-cover w-full h-full"
 									style={{ objectFit: 'cover' }}
 								/>
 							</div>
-							<div className="p-2 sm:p-4">
-								<h3 className="text-xl sm:text-2xl font-semibold mb-2">{project.title}</h3>
-								<p className="text-base sm:text-lg">{project.description}</p>
+							<div className="p-4">
+								<h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
+								<p className="text-base text-gray-700 dark:text-gray-200">{project.description}</p>
 							</div>
 						</a>
-					))}
-				</div>
-			</div>
-		</div>
+					</SwiperSlide>
+				))}
+			</Swiper>
+			<div className="swiper-pagination-custom flex justify-center mt-8" />
+		</section>
 	);
 }
