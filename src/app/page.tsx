@@ -5,9 +5,7 @@ import Image from 'next/image';
 import { useLanguage } from './context/LanguageContext';
 import TechnologyCarousel from './components/TechnologyCarousel';
 import { translations } from './translations';
-import ThemeToggle from './components/ThemeToggle';
 import { useForm, ValidationError } from '@formspree/react';
-import { FaWhatsapp, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { SiWhatsapp } from 'react-icons/si';
 import { useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
@@ -15,8 +13,8 @@ import ProjectCarousel from './components/ProjectCarousel';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const { language, setLanguage } = useLanguage();
-  const { isDark, toggleTheme } = useTheme();
+  const { language } = useLanguage();
+  const { isDark } = useTheme();
   // Cambia el endpoint a xvgrajrw para Formspree
   const [state, handleSubmit] = useForm("xvgrajrw");
 
