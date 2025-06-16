@@ -92,7 +92,7 @@ export default function Home() {
       {/* Projects Section - Mobile First */}
       <section id="projects" className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-12 max-w-full min-w-0">
         <h2
-          className="text-3xl font-bold mb-6 text-center"
+          className="text-4xl font-extrabold mb-6 text-center font-sans"
           style={{ color: isDark ? '#fff' : '#1a202c' }}
         >
           {t.projects}
