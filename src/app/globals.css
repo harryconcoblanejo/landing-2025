@@ -67,8 +67,12 @@
   .about-animate:hover,
   .about-animate--active {
     font-size: 1.13em;
-    color: #f3f4f6 !important; /* Un tono más claro */
+    color: #374151 !important;
     transform: scale(1.03);
+  }
+  .dark .about-animate:hover,
+  .dark .about-animate--active {
+    color: #f3f4f6 !important;
   }
 }
 
