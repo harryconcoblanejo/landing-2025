@@ -143,7 +143,9 @@ export default function Home() {
             {t.contactText}
           </h2>
           {state.succeeded ? (
-            <p className="text-green-600 text-center mb-8">¡Mensaje enviado correctamente!</p>
+            <p className="text-green-600 text-center mb-8 animate-bounce-in">
+              {t.contactSuccess}
+            </p>
           ) : (
             <form className="bg-white/90 dark:bg-gray-900/90 rounded-xl shadow-lg p-4 md:p-8 space-y-4 md:space-y-6 text-left" autoComplete="off" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
