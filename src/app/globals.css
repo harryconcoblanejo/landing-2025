@@ -64,7 +64,7 @@
   .about-animate {
     transition: font-size 0.25s, color 0.25s, transform 0.25s;
   }
-  
+  /* gfd */
   .about-animate:hover,
   .about-animate--active {
     font-size: 1.13em;
