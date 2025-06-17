@@ -7,7 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 import { useTheme } from '../contexts/ThemeContext';
 import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
-
+// array
 const technologies = [
   { icon: SiNextdotjs, name: 'nextjs', color: '#ffffff' },
   { icon: FaReact, name: 'react', color: '#61DAFB' },
