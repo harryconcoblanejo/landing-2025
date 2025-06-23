@@ -6,7 +6,7 @@ import { useLanguage } from './context/LanguageContext';
 import TechnologyCarousel from './components/TechnologyCarousel';
 import { translations } from './translations';
 import { useForm, ValidationError } from '@formspree/react';
-import { SiWhatsapp } from 'react-icons/si';
+import { SiWhatsapp, SiGithub } from 'react-icons/si';
 import { useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
 import ProjectCarousel from './components/ProjectCarousel';
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full py-6 md:py-12 flex justify-center items-center bg-transparent px-4 sm:px-6 md:px-8 lg:px-12 max-w-full min-w-0">
+      <section id="contact" className="w-full py-6 md:py-12 flex-col flex justify-center items-center bg-transparent px-4 sm:px-6 md:px-8 lg:px-12 max-w-full min-w-0">
         <div className="max-w-2xl w-full mx-auto px-4 text-center">
           <h2
             className="text-4xl font-extrabold mb-6 text-center"
@@ -188,7 +188,9 @@ export default function Home() {
             </form>
           )}
           {/* Datos de contacto personales */}
-          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 text-base">
+         
+        </div>
+         <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 text-base ">
             {/* WhatsApp */}
             <a
               href="https://wa.me/541141636472"
@@ -222,8 +224,18 @@ export default function Home() {
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.1-.9-2-2-2s-2 .9-2 2v4.5h-3v-9h3v1.22c.41-.72 1.39-1.22 2.25-1.22 1.93 0 3.5 1.57 3.5 3.5v5.5z"/></svg>
               <span className="font-medium">LinkedIn</span>
             </a>
+            {/* Github*/}
+            <a
+              href="https://github.com/harryconcoblanejo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 transition-colors"
+              style={{ color: isDark ? '#60a5fa' : '#2563eb' }}
+            >
+              <SiGithub className="w-5 h-5" />
+              <span className="font-medium">GitHub</span>
+            </a>
           </div>
-        </div>
       </section>
     </div>
   );

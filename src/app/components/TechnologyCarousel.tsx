@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { SiNextdotjs, SiMongodb, SiGraphql, SiTailwindcss, SiPrisma, SiTypescript, SiJavascript, SiCss3, SiHtml5, SiSass } from 'react-icons/si';
+import { SiNextdotjs, SiMongodb, SiGraphql, SiTailwindcss, SiPrisma, SiTypescript, SiJavascript, SiCss3, SiHtml5, SiSass, SiGithub, SiDocker } from 'react-icons/si';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 import { useTheme } from '../contexts/ThemeContext';
@@ -22,6 +22,8 @@ const technologies = [
   { icon: SiCss3, name: 'css', color: '#1572B6' },
   { icon: SiHtml5, name: 'html', color: '#E44D26' },
   { icon: SiSass, name: 'sass', color: '#CC6699' },
+  { icon: SiGithub, name: 'github', color: '#181717' },
+  { icon: SiDocker, name: 'docker', color: '#2496ED' },
 ];
 
 export default function TechnologyCarousel() {
