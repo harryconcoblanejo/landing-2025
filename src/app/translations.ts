@@ -54,7 +54,7 @@ Trabajo con tecnologías modernas para construir sitios web rápidos, seguros y 
 
 Me enfoco en la comunicación directa, el diseño funcional y la entrega ágil. Si estás buscando alguien que entienda tu visión y la convierta en resultados concretos, estás en el lugar correcto.`,
     contact: "Contacto",
-    contactText: "¡Hablemos!",
+    contactText: "Hablemos!",
     contactName: "Tu nombre",
     contactPhone: "Teléfono",
     contactEmail: "Tu correo",
