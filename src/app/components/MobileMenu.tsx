@@ -76,12 +76,18 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
             href="#about"
             onClick={e => {
               e.preventDefault();
-              const el = document.getElementById('about');
-              if (el) {
-                const y = el.getBoundingClientRect().top + window.scrollY - 72;
-                window.scrollTo({ top: y, behavior: 'smooth' });
+              if (typeof window !== 'undefined') {
+                if (window.location.pathname === '/') {
+                  const el = document.getElementById('about');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
+                  toggleMenu();
+                } else {
+                  window.location.href = '/#about';
+                }
               }
-              toggleMenu();
             }}
             className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + (activeSection==='about' ? ' underline' : '')}
             style={{ transitionDelay: isMenuOpen ? '100ms' : '0ms' }}
@@ -92,12 +98,18 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
             href="#projects"
             onClick={e => {
               e.preventDefault();
-              const el = document.getElementById('projects');
-              if (el) {
-                const y = el.getBoundingClientRect().top + window.scrollY - 72;
-                window.scrollTo({ top: y, behavior: 'smooth' });
+              if (typeof window !== 'undefined') {
+                if (window.location.pathname === '/') {
+                  const el = document.getElementById('projects');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
+                  toggleMenu();
+                } else {
+                  window.location.href = '/#projects';
+                }
               }
-              toggleMenu();
             }}
             className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + (activeSection==='projects' ? ' underline' : '')}
             style={{ transitionDelay: isMenuOpen ? '200ms' : '0ms' }}
@@ -108,12 +120,18 @@ export default function MobileMenu({ isMenuOpen, setIsMenuOpen }: MobileMenuProp
             href="#contact"
             onClick={e => {
               e.preventDefault();
-              const el = document.getElementById('contact');
-              if (el) {
-                const y = el.getBoundingClientRect().top + window.scrollY - 72;
-                window.scrollTo({ top: y, behavior: 'smooth' });
+              if (typeof window !== 'undefined') {
+                if (window.location.pathname === '/') {
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
+                  toggleMenu();
+                } else {
+                  window.location.href = '/#contact';
+                }
               }
-              toggleMenu();
             }}
             className={linkBase.replace('text-base', 'text-lg') + (isMenuOpen ? ' opacity-100 translate-y-0' : '') + (activeSection==='contact' ? ' underline' : '')}
             style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
