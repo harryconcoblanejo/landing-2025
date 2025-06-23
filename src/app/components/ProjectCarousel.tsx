@@ -10,32 +10,22 @@ const projects = [
 	{
 		title: 'Todo App',
 		description: 'Aplicación de tareas minimalista',
-		image: '/images/farzad-p-xSl33Wxyc-unsplash.jpg',
+		image: '/images/CapturaToDoApp.PNG',
 		url: 'https://todo-app-gray-beta.vercel.app/'
 	},
-	{
-		title: 'Gestor de Proyectos',
-		description: 'Organiza tus proyectos fácilmente',
-		image: '/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg',
-		url: 'https://todo-app-gray-beta.vercel.app/'
-	},
+	
 	{
 		title: 'Dashboard',
 		description: 'Panel de control interactivo',
 		image: '/images/farzad-p-xSl33Wxyc-unsplash.jpg',
 		url: 'https://todo-app-gray-beta.vercel.app/'
 	},
+	
 	{
-		title: 'E-commerce',
-		description: 'Tienda online moderna y responsiva',
-		image: '/images/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg',
-		url: 'https://todo-app-gray-beta.vercel.app/'
-	},
-	{
-		title: 'Blog Personal',
-		description: 'Plataforma para compartir artículos y noticias',
-		image: '/images/farzad-p-xSl33Wxyc-unsplash.jpg',
-		url: 'https://todo-app-gray-beta.vercel.app/'
+		title: 'Landing Page',
+		description: 'Pagina de destino moderna y simple para guro de música de meditación',
+		image: '/images/Captura agua.PNG',
+		url: 'https://agua-page.vercel.app/'
 	}
 ];
 
