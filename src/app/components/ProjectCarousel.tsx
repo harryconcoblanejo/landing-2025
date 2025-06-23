@@ -5,6 +5,7 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 
@@ -72,7 +73,7 @@ export default function ProjectCarousel() {
 								</div>
 							</a>
 						) : (
-							<a
+							<Link
 								href={project.url}
 								className="block rounded-xl shadow-lg border bg-white dark:bg-[#23272f] border-gray-200 dark:border-gray-700 overflow-hidden hover:scale-[1.02] transition-transform"
 								style={{ textDecoration: 'none' }}
@@ -93,7 +94,7 @@ export default function ProjectCarousel() {
 									<h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
 									<p className="text-base text-gray-700 dark:text-gray-200">{project.description}</p>
 								</div>
-							</a>
+							</Link>
 						)}
 					</SwiperSlide>
 				))}
