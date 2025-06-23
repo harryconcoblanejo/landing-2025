@@ -10,6 +10,7 @@ import { SiWhatsapp, SiGithub } from 'react-icons/si';
 import { useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
 import ProjectCarousel from './components/ProjectCarousel';
+import Link from 'next/link';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -49,6 +50,21 @@ export default function Home() {
     window.addEventListener('scroll', handleScrollProjectsSection);
     handleScrollProjectsSection();
     return () => window.removeEventListener('scroll', handleScrollProjectsSection);
+  }, []);
+
+  useEffect(() => {
+    // Scroll automático al hash si existe (para navegación interna)
+    if (typeof window === 'undefined') return;
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash.replace('#', ''));
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 72;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    }
   }, []);
 
   if (!mounted) {

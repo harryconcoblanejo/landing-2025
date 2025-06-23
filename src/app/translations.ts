@@ -32,7 +32,13 @@ I focus on direct communication, functional design, and agile delivery. If you'r
     mongodb: "MongoDB",
     graphql: "GraphQL",
     tailwind: "Tailwind",
-    prisma: "Prisma"
+    prisma: "Prisma",
+    projectsTodoTitle: "Todo App",
+    projectsTodoDesc: "Minimalist task management app",
+    projectsDashboardTitle: "Dashboard",
+    projectsDashboardDesc: "Interactive control panel",
+    projectsLandingTitle: "Landing Page",
+    projectsLandingDesc: "Modern and simple landing page for a meditation music group"
   },
   es: {
     hero: {
@@ -67,6 +73,12 @@ Me enfoco en la comunicación directa, el diseño funcional y la entrega ágil. 
     mongodb: "MongoDB",
     graphql: "GraphQL",
     tailwind: "Tailwind",
-    prisma: "Prisma"
+    prisma: "Prisma",
+    projectsTodoTitle: "Todo App",
+    projectsTodoDesc: "Aplicación de tareas minimalista",
+    projectsDashboardTitle: "Dashboard",
+    projectsDashboardDesc: "Panel de control interactivo",
+    projectsLandingTitle: "Landing Page",
+    projectsLandingDesc: "Página de destino moderna y simple para grupo de música de meditación"
   }
 } as const;

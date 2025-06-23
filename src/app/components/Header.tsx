@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
 import { translations } from '../translations';
 import { FiDownload } from 'react-icons/fi';
+import Link from 'next/link';
 
 export default function Header() {
   const { language } = useLanguage();
@@ -54,48 +55,57 @@ export default function Header() {
             </a>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a
-              href="#about"
+            <Link
+              href="/#about"
+              scroll={false}
+              className={`text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200${activeSection==='about' ? ' underline' : ''}`}
               onClick={e => {
-                e.preventDefault();
-                const el = document.getElementById('about');
-                if (el) {
-                  const y = el.getBoundingClientRect().top + window.scrollY - 72;
-                  window.scrollTo({ top: y, behavior: 'smooth' });
+                if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                  e.preventDefault();
+                  const el = document.getElementById('about');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
                 }
               }}
-              className={`text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200${activeSection==='about' ? ' underline' : ''}`}
             >
               {translations[language].about}
-            </a>
-            <a
-              href="#projects"
+            </Link>
+            <Link
+              href="/#projects"
+              scroll={false}
+              className={`text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200${activeSection==='projects' ? ' underline' : ''}`}
               onClick={e => {
-                e.preventDefault();
-                const el = document.getElementById('projects');
-                if (el) {
-                  const y = el.getBoundingClientRect().top + window.scrollY - 72;
-                  window.scrollTo({ top: y, behavior: 'smooth' });
+                if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                  e.preventDefault();
+                  const el = document.getElementById('projects');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
                 }
               }}
-              className={`text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200${activeSection==='projects' ? ' underline' : ''}`}
             >
               {translations[language].projects}
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/#contact"
+              scroll={false}
+              className={`text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200${activeSection==='contact' ? ' underline' : ''}`}
               onClick={e => {
-                e.preventDefault();
-                const el = document.getElementById('contact');
-                if (el) {
-                  const y = el.getBoundingClientRect().top + window.scrollY - 72;
-                  window.scrollTo({ top: y, behavior: 'smooth' });
+                if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                  e.preventDefault();
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
                 }
               }}
-              className={`text-white text-base font-medium hover:underline hover:opacity-80 transition-opacity duration-200${activeSection==='contact' ? ' underline' : ''}`}
             >
               {translations[language].contact}
-            </a>
+            </Link>
           </div>
           <div className="flex items-center gap-4 md:static md:mr-12 md:gap-4 fixed top-4 right-4 z-[110] md:top-auto md:right-auto">
             {/* Botón de descarga de CV, igual que los links */}
