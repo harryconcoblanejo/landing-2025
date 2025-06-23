@@ -10,7 +10,6 @@ import { SiWhatsapp, SiGithub } from 'react-icons/si';
 import { useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
 import ProjectCarousel from './components/ProjectCarousel';
-import Link from 'next/link';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
