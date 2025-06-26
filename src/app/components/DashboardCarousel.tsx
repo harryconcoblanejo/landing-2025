@@ -58,9 +58,16 @@ export default function DashboardCarousel() {
 	const { language } = useLanguage();
 	return (
 		<section className="w-full max-w-2xl mx-auto py-10 px-2 rounded-2xl bg-gradient-to-b from-slate-950 via-blue-200/90 to-blue-50/90 dark:from-[#1e293b] dark:via-[#23272f] dark:to-[#181e29] shadow-lg dark:border-gray-800 mt-8">
-			<h2 className="text-2xl font-bold mb-6 text-center text-gray-100 dark:text-white">
-				{language === 'es' ? 'Dashboard - Detalle' : 'Dashboard - Details'}
-			</h2>
+			<a 
+				href="https://www.upwork.com/freelancers/~0116356afadaf25b53?p=1930663713883107328"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="block cursor-pointer hover:underline transition-colors"
+			>
+				<h2 className="text-2xl font-bold mb-6 text-center text-gray-100 dark:text-white">
+					{language === 'es' ? 'Dashboard - Detalle' : 'Dashboard - Details'}
+				</h2>
+			</a>
 			<Swiper
 				spaceBetween={24}
 				slidesPerView={1}
